@@ -4,10 +4,11 @@ import { getAccounts } from "@/lib/actions/bank.actions";
 import { getLoggedInUser } from "@/lib/actions/user.actions";
 import React from "react";
 
-const Transfer = async () => {
+const PaymentTransfer = async () => {
   const loggedIn = await getLoggedInUser();
   if (!loggedIn) return;
-  const accounts = await getAccounts({ userId: loggedIn.id });
+
+  const accounts = await getAccounts({ userId: loggedIn.$id });
 
   if (!accounts) return;
 
@@ -26,4 +27,4 @@ const Transfer = async () => {
   );
 };
 
-export default Transfer;
+export default PaymentTransfer;

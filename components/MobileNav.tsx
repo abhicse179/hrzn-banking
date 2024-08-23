@@ -17,6 +17,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import Footer from "./Footer";
 import PlaidLink from "./PlaidLink";
+import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 
 const MobileNav = ({ user }: MobileNavProps) => {
   const pathname = usePathname();
@@ -33,6 +34,9 @@ const MobileNav = ({ user }: MobileNavProps) => {
           />
         </SheetTrigger>
         <SheetContent side="left" className="border-none bg-white">
+          <SheetTitle>
+            <VisuallyHidden.Root>Menu</VisuallyHidden.Root>
+          </SheetTitle>
           <nav className="flex flex-col gap-4">
             <Link
               href="/"
